@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="da"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fejl - Attraktion ikke fundet</title>
+</head>
+<body>
+<h1>Oops! Noget gik galt.</h1>
+
+<!-- Viser fejlbeskeden fra modellen -->
+<p th:text="${error}">En ukendt fejl er opstået.</p>
+
+<!-- Link til at gå tilbage til listen over attraktioner -->
+<a href="/attractions">Gå tilbage til listen over attraktioner</a>
+
+
+</body>
+</html>

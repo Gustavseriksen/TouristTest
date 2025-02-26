@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Opdater attraktion</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+<h1>Opdater turistattraktionen</h1>
+
+<form th:action="@{/attractions/update}" method="post">
+    <!-- Skjult felt til at holde det oprindelige navn -->
+    <input type="hidden" name="name" th:value="${attraction.name}" />
+
+    <!-- Navn (vises men kan ikke ændres) -->
+    <label>Navn:</label>
+    <input type="text" th:value="${attraction.name}" disabled />
+    <br><br>
+
+    <!-- Beskrivelse -->
+    <label for="newDescription">Ny beskrivelse:</label>
+    <textarea id="newDescription" name="newDescription" th:text="${attraction.description}" rows="4" cols="50" required></textarea>
+    <br><br>
+
+    <!-- By (Menu) -->
+    <label for="newCity">By:</label>
+    <select id="newCity" name="newCity" required>
+        <option th:each="city : ${cities}" th:value="${city}" th:text="${city}" th:selected="${city == attraction.city}"></option>
+    </select>
+    <br><br>
+
+    <!-- Tags (Checkboxes) -->
+    <label>Tags:</label>
+    <div th:each="tag : ${tags}">
+        <input type="checkbox" th:value="${tag}" th:name="newTags" th:id="${tag}"
+               th:checked="${attraction.tags.contains(tag)}"/>
+        <label th:for="${tag}" th:text="${tag}"></label>
+    </div>
+    <br>
+
+    <!-- Submit-knapper -->
+    <button type="submit">Gem ændringer</button>
+    <a href="/attractions"><button type="button">Fortryd</button></a>
+
+</form>
+
+<a href="/attractions">⬅️ Tilbage til listen</a>
+</body>
+</html>

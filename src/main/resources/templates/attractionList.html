@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="da"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Turistattraktioner</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<h1>Turistattraktioner:</h1>
+
+<table>
+<tr>
+    <th>Navn</th>
+    <th>Beskrivelse</th>
+    <th>By</th>
+    <th>Tags</th>
+</tr>
+<tr th:each="attraction : ${attractions}">
+    <td>
+        <a th:href="@{'/attractions/' + ${attraction.name}}" th:text="${attraction.name}"></a>
+    </td>
+    <td th:text="${attraction.description}">Attraktionens beskrivelse</td>
+    <td th:text="${attraction.city}">Attraktionens by</td>
+    <td>
+        <!-- knap for tags -->
+        <a th:href="@{'/attractions/' + ${attraction.name} + '/tags'}">
+            <button>Tags</button>
+        </a>
+    </td>
+    <td>
+        <!-- knap for edit -->
+        <a th:href="@{'/attractions/edit/' + ${attraction.name}}">
+            <button>Opdater</button>
+        </a>
+    </td>
+    <td>
+        <!-- Slet-knap -->
+        <form th:action="@{'/attractions/delete/' + ${attraction.name}}" method="post" style="display:inline;">
+            <button type="submit" onclick="return confirm('Er du sikker på, at du vil slette denne attraktion?');">❌ Slet</button>
+        </form>
+    </td>
+</tr>
+</table>
+
+<a href="/attractions/add">Tilføj attraktion</a>
+
+</body>
+</html>

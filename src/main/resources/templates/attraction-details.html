@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${attraction.name} + ' - Detaljer'">Attraktions detaljer</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+<h1 th:text="${attraction.name}">Attraktionsnavn</h1>
+
+<p><strong>Beskrivelse:</strong> <span th:text="${attraction.description}"></span></p>
+<p><strong>By:</strong> <span th:text="${attraction.city}"></span></p>
+
+<!-- Vis tags hvis der er nogen -->
+<p><strong>Tags:</strong></p>
+<ul>
+    <li th:each="tag : ${attraction.tags}" th:text="${tag}"></li>
+</ul>
+
+<!-- Tilbage-knap -->
+<a href="/attractions">⬅️ Tilbage til listen</a>
+</body>
+</html>

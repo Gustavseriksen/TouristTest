@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="da"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tilføj en ny attraktion</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+<h1>Tilføj en ny turistattraktion</h1>
+
+<!-- Formular til tilføjelse af en ny attraktion -->
+<form th:action="@{/attractions/save}" method="post">
+
+    <!-- Navn -->
+    <label for="name">Navn:</label>
+    <input type="text" id="name" name="name" placeholder="Indtast navn" required />
+    <br><br>
+
+    <!-- Beskrivelse  -->
+    <label for="description">Beskrivelse:</label>
+    <textarea id="description" name="description" placeholder="Indtast beskrivelse" rows="4" cols="50" required></textarea>
+    <br><br>
+
+    <!-- By (rullemenu) -->
+    <label for="city">By:</label>
+    <select id="city" name="city" required>
+        <option value="">Vælg en by</option>
+        <option th:each="city : ${cities}" th:value="${city}" th:text="${city}"></option>
+    </select>
+    <br><br>
+
+    <!-- Tags (Checkboxes) -->
+    <label>Tags:</label>
+    <div th:each="tag : ${tags}">
+        <input type="checkbox" th:value="${tag}" th:name="tags" th:id="${tag}" />
+        <label th:for="${tag}" th:text="${tag}"></label>
+    </div>
+    <br>
+
+    <!-- Submit-knapper -->
+    <button type="submit">Tilføj Attraktion</button>
+    <a href="/attractions"><button type="button">Fortryd</button></a>
+</form>
+
+<!-- Link tilbage til listen -->
+<a href="/attractions">⬅️ Tilbage til listen</a>
+
+</body>
+</html>
