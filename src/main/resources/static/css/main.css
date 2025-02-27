@@ -1,8 +1,6 @@
 table {
-    width: 80%;
-    margin: 20px auto;
+    width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
@@ -19,3 +17,30 @@ th {
 tr:hover {
     background-color: #f1f1f1;
 }
+
+
+/* Styling af knapper */
+.btn {
+    display: inline-block;  /* Gør linket til en "blok", så det kan have bredde og højde */
+    padding: 8px 12px;  /* Indvendig afstand (top/bund: 8px, venstre/højre: 12px) */
+    background-color: #007BFF;  /* Blå baggrund */
+    color: white;  /* Hvid tekstfarve */
+    text-decoration: none;  /* Fjerner understregning fra links */
+    border-radius: 5px;  /* Gør hjørnerne runde (5px afrunding) */
+    font-size: 14px;  /* Skriftstørrelse på 14px */
+    font-weight: bold;  /* Gør teksten fed */
+    border: none;  /* Fjerner standard-knapkant */
+    cursor: pointer;  /* Ændrer musens markør til en "hånd", når man holder over */
+}
+
+/* Når musen føres over knappen, skifter farven */
+.btn:hover {
+    background-color: #0056b3;  /* En mørkere blå farve */
+}
+
+/* Styling af sektionen, der indeholder "Tilføj attraktion"-knappen */
+.add-attraction {
+    text-align: center;  /* Centrerer knappen horisontalt */
+    margin-top: 20px;  /* Skaber afstand mellem tabellen og knappen */
+}
+

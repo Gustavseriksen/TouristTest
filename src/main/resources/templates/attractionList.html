@@ -7,7 +7,6 @@
     <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 <body>
-<h1>Turistattraktioner:</h1>
 
 <table>
 <tr>
@@ -15,6 +14,8 @@
     <th>Beskrivelse</th>
     <th>By</th>
     <th>Tags</th>
+    <th>Opdater</th>
+    <th>Slet</th>
 </tr>
 <tr th:each="attraction : ${attractions}">
     <td>
@@ -23,27 +24,26 @@
     <td th:text="${attraction.description}">Attraktionens beskrivelse</td>
     <td th:text="${attraction.city}">Attraktionens by</td>
     <td>
-        <!-- knap for tags -->
-        <a th:href="@{'/attractions/' + ${attraction.name} + '/tags'}">
-            <button>Tags</button>
-        </a>
+        <!-- Knap for tags -->
+        <a th:href="@{'/attractions/' + ${attraction.name} + '/tags'}" class="btn">Tags</a>
     </td>
     <td>
-        <!-- knap for edit -->
-        <a th:href="@{'/attractions/edit/' + ${attraction.name}}">
-            <button>Opdater</button>
-        </a>
+        <!-- Knap for edit -->
+        <a th:href="@{'/attractions/edit/' + ${attraction.name}}" class="btn">Opdater</a>
     </td>
     <td>
         <!-- Slet-knap -->
         <form th:action="@{'/attractions/delete/' + ${attraction.name}}" method="post" style="display:inline;">
-            <button type="submit" onclick="return confirm('Er du sikker på, at du vil slette denne attraktion?');">❌ Slet</button>
+            <button type="submit" class="btn" onclick="return confirm('Er du sikker på, at du vil slette denne attraktion?');">Slet</button>
         </form>
     </td>
 </tr>
 </table>
 
-<a href="/attractions/add">Tilføj attraktion</a>
+<!-- Knappen til at tilføje en ny attraktion -->
+<p class="add-attraction">
+    <a href="/attractions/add" class="btn">+ Tilføj attraktion</a>
+</p>
 
 </body>
 </html>
