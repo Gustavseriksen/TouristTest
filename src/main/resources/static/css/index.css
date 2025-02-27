@@ -7,8 +7,8 @@ body {
 }
 
 header {
-    background-color: #007BFF; /* Blå baggrund */
-    color: white; /* Hvid tekst */
+    background-color: #007BFF;
+    color: white;
     padding: 15px 20px;
     text-align: center;
     position: sticky;
@@ -16,7 +16,6 @@ header {
     width: 100%;
     z-index: 1000; /* Sørger for at headeren er øverst */
 }
-
 
 
 h1 {
