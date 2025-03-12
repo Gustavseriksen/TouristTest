@@ -13,6 +13,8 @@ import java.util.List;
 @RequestMapping("/attractions")
 public class TouristController {
 
+    // TEST
+
     private final TouristService touristService;
 
     // DI (Dependency Injection)
